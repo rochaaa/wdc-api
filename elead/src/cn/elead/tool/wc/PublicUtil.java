@@ -1,5 +1,3 @@
-package cn.elead.tool.wc;
-
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.net.InetAddress;
@@ -156,7 +154,7 @@ public class PublicUtil implements RemoteAccess {
 	 * @throws WTException 
 	 * @throws TeamException 
 	 */
-	public static void main(String[] args) throws TeamException, WTException {
+//	public static void main(String[] args) throws TeamException, WTException {
 		// TODO Auto-generated method stub
 		 
 //		RemoteMethodServer rms = RemoteMethodServer.getDefault();
@@ -187,27 +185,27 @@ public class PublicUtil implements RemoteAccess {
 //			e.printStackTrace();
 //		}
 //		
-		Map<String,String> map = new HashMap<String, String>();
-		map.put("aaaa", "AAAAAA;;;qqqFFFFFFF;;;qqqpppp");
-		map.put("bbbb", "BBBBBB;;;qqqfffffff;;;qqqpppp");
-		map.put("cccc", "pppp;;;qqqfffffff;;;qqqCCCCCC");
-		map.put("dddd", "DDDDDD;;;qqqpppp");
-		Iterator<Map.Entry<String, String>> entries = map.entrySet().iterator();  
-		while (entries.hasNext()) {
-			Map.Entry<String, String> entry = entries.next(); 
-			String component = entry.getKey();
-			String partStr = entry.getValue(); 
-			String[] parNumbers = partStr.split(";;;qqq");
-			for(String partNm : parNumbers){
-				if("pppp".equals(partNm)){ //如果配件是空的，那说明bom结构不完整，直接删掉map中的key
-					entries.remove();
-					break;  //跳出本次循环
-				}
-			}
-		}
-		map.keySet();
+//		Map<String,String> map = new HashMap<String, String>();
+		// map.put("aaaa", "AAAAAA;;;qqqFFFFFFF;;;qqqpppp");
+		// map.put("bbbb", "BBBBBB;;;qqqfffffff;;;qqqpppp");
+		// map.put("cccc", "pppp;;;qqqfffffff;;;qqqCCCCCC");
+		// map.put("dddd", "DDDDDD;;;qqqpppp");
+		// Iterator<Map.Entry<String, String>> entries = map.entrySet().iterator();  
+		// while (entries.hasNext()) {
+			// Map.Entry<String, String> entry = entries.next(); 
+			// String component = entry.getKey();
+			// String partStr = entry.getValue(); 
+			// String[] parNumbers = partStr.split(";;;qqq");
+			// for(String partNm : parNumbers){
+				// if("pppp".equals(partNm)){ //如果配件是空的，那说明bom结构不完整，直接删掉map中的key
+					// entries.remove();
+					// break;  //跳出本次循环
+				// }
+			// }
+		// }
+		// map.keySet();
 		
-	}
+	// }
 	
 
 
@@ -268,10 +266,10 @@ public class PublicUtil implements RemoteAccess {
 
 	
 	/**
-	 * 根据容器名称查询容器
-	 * @param name  容器名称
-	 * @return WTContainer 容器对象
-	 * @throws WTException  异常处理
+	 * Query the container based on the container name
+	 * @param name  Container name
+	 * @return WTContainer Container object
+	 * @throws WTException  Exception handling
 	 */
 	public static WTContainer getWTContainerByName(String name) throws WTException{
 	
@@ -301,11 +299,11 @@ public class PublicUtil implements RemoteAccess {
 		} catch (WTException e) {
 			folder = null;
 		}
-		// 不存在就创建
+		// Create if it doesn't exist
 		if (folder == null) {
 			try {
 //				folder = FolderHelper.service.createSubFolder(path,containerRef);
-				folder=FolderHelper.service.saveFolderPath(path,containerRef);//创建文件夹的另一种方法
+				folder=FolderHelper.service.saveFolderPath(path,containerRef);//Another way to create folders
 			} catch (WTException e) {
 				e.printStackTrace();
 			}
@@ -319,8 +317,7 @@ public class PublicUtil implements RemoteAccess {
 
     /**
      * Author: Freedom Rain
-     * Description:               get persistable's oid by persistable
-     * 2015-8-10下午6:24:56
+     * Description: get persistable's oid by persistable
      */
 	public static String getOidByPersistable(Persistable persistable)
 			throws WTException {
@@ -334,8 +331,7 @@ public class PublicUtil implements RemoteAccess {
 
 	/**
 	 * Author: Freedom Rain
-	 * Description:           get persistable by oid
-	 * 2015-8-10下午6:24:02
+	 * Description: get persistable by oid
 	 */
 	public static Persistable getPersistableByOid(String strOid)
 			throws WTException {
@@ -353,7 +349,7 @@ public class PublicUtil implements RemoteAccess {
 	
 	/**
 	 * @author baijuanjuan
-	 * @directions         get object by oid
+	 * @directions get object by oid
 	 * @param
 	 */
 	public static Object getObjectByOid(String oid){
@@ -374,7 +370,7 @@ public class PublicUtil implements RemoteAccess {
 
 	/**
 	 * Author: Freedom Rain
-	 * Description:               get persistable url ,not including containeroid
+	 * Description: get persistable url ,not including containeroid
 	 * @param persistable
 	 * @return
 	 * @throws WTException
@@ -394,7 +390,7 @@ public class PublicUtil implements RemoteAccess {
 /*	
 	*//**
 	 * Author: Freedom Rain
-	 * Description:               get persistable url ,not including containeroid
+	 * Description: get persistable url ,not including containeroid
 	 * @param pbo
 	 * @return
 	 * @throws WTException
@@ -431,7 +427,7 @@ public class PublicUtil implements RemoteAccess {
 	
 	/**
 	   * @author baijuanjuan
-	   * @directions     得到本地化的类型名称（本地化的内部名称）
+	   * @directions Get the localized type name (localized internal name)
 	   * @param 
 	   *
 	 */
@@ -487,7 +483,7 @@ public class PublicUtil implements RemoteAccess {
 	
 	/**
 	 * @author baijuanjuan
-	 * @directions 判断部件是否检出
+	 * @directions Determine whether the object is checked out
 	 * @param part
 	 * @return
 	 */
@@ -505,7 +501,7 @@ public class PublicUtil implements RemoteAccess {
 	}
     
     /**
-     * 获取工作副本
+     * Get a working copy
      * @author baijuanjuan
      * @param revision
      * @return
@@ -541,7 +537,8 @@ public class PublicUtil implements RemoteAccess {
     
 
     /**
-     * 检入对象   RevisionControlled（抽象类接收 有版本的类对象）
+     * 
+	 * Check in object   RevisionControlled（The abstract class receives the versioned class object）
      * @author ymj
      * @param revision
      * @return
@@ -565,7 +562,7 @@ public class PublicUtil implements RemoteAccess {
     }
     
     /**
-	 * 根据属性文件名(不含文件类型)和需要的key，获取value值（国际化取值）
+	 * Obtain the value (internationalized value) according to the attribute file name (excluding file type) and the required key
 	 * @directions
 	 * @param
 	 */
@@ -583,7 +580,7 @@ public class PublicUtil implements RemoteAccess {
 	
 	
 	/**
-	 * 获取资源文件，其自身有获取值的方法
+	 * Get the resource file, it has its own method to get the value
 	 * @param propertyName
 	 * @return
 	 */
@@ -598,7 +595,7 @@ public class PublicUtil implements RemoteAccess {
 	}
 	
 	/**
-	 * 修改对象的生命周期状态
+	 * Modify the life cycle state of an object
 	 * @param obj
 	 * @param state
 	 * @throws WTInvalidParameterException
@@ -623,7 +620,7 @@ public class PublicUtil implements RemoteAccess {
 
 	
 	/**
-	 * Description:                根据对象的编号、类型，得到对象（使用数据的查询语法得到对象）
+	 * Description: According to the number and type of the object, get the object (use the data query syntax to get the object)
 	 * @param number
 	 * @param thisClass
 	 * @return
@@ -665,7 +662,7 @@ public class PublicUtil implements RemoteAccess {
 	
 	
 	/**
-	 * 根据内部名称以及显示值获取内部名称
+	 * Get the internal name based on the internal name and display value
 	 * @param enumName
 	 * @param displayName
 	 * @return
@@ -707,7 +704,7 @@ public class PublicUtil implements RemoteAccess {
                     	Collection<EnumerationMembershipReadView> views = edr.getAllMemberships();
                     	 List<EnumerationMembershipReadView> newViews = new ArrayList<EnumerationMembershipReadView>();
                     	 newViews.addAll(views);
-                    	 Collections.sort(newViews, compar);//根据比较器排序输出
+                    	 Collections.sort(newViews, compar);//Sort output according to the comparator
                     	 if(newViews != null && newViews.size() > 0){
                     		 for (EnumerationMembershipReadView view : newViews) {
                     			 if(view == null){
@@ -772,7 +769,7 @@ public class PublicUtil implements RemoteAccess {
 
 	
 	/**
-	 * 根据对象类型，以及内部属性获取下拉列表的值
+	 * Get the value of the drop-down list according to the object type and internal properties
 	 * @param typeName
 	 * @param attrName
 	 * @return
@@ -785,22 +782,22 @@ public class PublicUtil implements RemoteAccess {
 //		logger.debug("td=" + td);
 		NmOid nmOid = NmOid.newNmOid(ObjectIdentifier.newObjectIdentifier(td.toString()));
 
-		//获取类型中的所有属性定义
+		//Get all attribute definitions in the type
 		ArrayList<? extends Object> adrvs = LWCCommands.getTypeAttributes(nmOid.toString());
 		for(Object object:adrvs) {
 			if(object instanceof AttributeDefinitionReadView) {
 				AttributeDefinitionReadView adrv = (AttributeDefinitionReadView)object;
 //				logger.debug("adrv.getAttributeTypeIdentifier().getAttributeName()=" + adrv.getAttributeTypeIdentifier());
-				//比较相同的属性定义
+				//Compare the same attribute definition
 				if(adrv.getAttributeTypeIdentifier().getAttributeName().equals(attrName)) {
-					//获取所有约束
+					//Get all constraints
 					Collection<ConstraintDefinitionReadView> constraints = adrv.getAllConstraints();
 //					logger.debug("constraints.size()=" + constraints.size());
 					Iterator<ConstraintDefinitionReadView> iter = constraints.iterator();
 					for(ConstraintDefinitionReadView constraint: constraints) {
 						String defClassName = constraint.getRule().getRuleClassname();
 //						logger.debug("defClassName=" + defClassName);
-						//获取合法值类型
+						//Get legal value type
 						if(defClassName.equals(DiscreteSetConstraint.class.getName())) {
 							Serializable ruleData = constraint.getRuleData();
 //							logger.debug("ruleData=" + ruleData);
@@ -827,7 +824,7 @@ public class PublicUtil implements RemoteAccess {
 	
 	
 	/**
-	 * Description:              移除父类部件和子部件的全部使用关系
+	 * Description: Remove all the relationship between the parent component and the child component
 	 */
 	public static WTPart removeUsageLink(WTPart part) {
 		try {
@@ -847,7 +844,7 @@ public class PublicUtil implements RemoteAccess {
     
 	
 	/**
-	 * Description:              移除父类部件和子部件的全部使用关系
+	 * Description: Remove all the relationship between the parent component and the child component
 	 */
 	public static WTPart removeSubParts(WTPart part) {
 		try {
@@ -873,7 +870,7 @@ public class PublicUtil implements RemoteAccess {
 	
 	
 	/**
-	 * 查询角色获取用户
+	 * Query role to get users
 	 * @param displayName
 	 * @return
 	 */
@@ -882,7 +879,7 @@ public class PublicUtil implements RemoteAccess {
 		String sql="select  role from wtroleprincipal where name='" +  displayName+"'";
 		String temp=getRoleNameBySql(sql);
 		if (temp!=null||!"".equals(temp)) {
-			if ("研发代表".equals(displayName)) {
+			if ("R&D representative".equals(displayName)) {
 				roleName="RD";
 			}else{
 				roleName=temp;
@@ -897,7 +894,7 @@ public class PublicUtil implements RemoteAccess {
 	
 	
 	/**
-	 * 根据sql 得到查询信息得到角色英文名
+	 * According to sql Get the query information to get the English name of the role
 	 * @param sql
 	 * @return
 	 */
@@ -940,7 +937,7 @@ public class PublicUtil implements RemoteAccess {
 	
 
 	/**
-	 * 获取连接对象
+	 * Get the connection object
 	 * @return
 	 * @throws UnsupportedPDSException
 	 * @throws UnknownHostException
@@ -976,7 +973,4 @@ public class PublicUtil implements RemoteAccess {
             return String.valueOf(xssfRow.getStringCellValue());
         }
     }
-	 
-
-
 }
